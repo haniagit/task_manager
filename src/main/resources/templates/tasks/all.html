@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 th:text="${description}"/>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-bordered table-hover table-custom">
+                <tr class="success">
+                    <th>Nazwa</th>
+                    <th>Opis</th>
+                    <th>Czy zakończone</th>
+                    <th>Edytuj</th>
+                    <th>Usuń</th>
+                </tr>
+                <tr th:each="task : ${tasks}" th:classappend="${isFinished} ? favorite">
+                    <td th:text="${task.name}"></td>
+                    <td th:text="${task.description}"></td>
+                    <td th:text="${task.isFinished()}"></td>
+                    <td><a th:href="@{/tasks/{id}(id=${task.id})}">Edycja</a></td>
+                    <td>Usuń</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<h5><a href="/">Dodaj nowe zadanie</a></h5>
+<h5><a href="/all">Wszystkie</a></h5>
+<h5><a href="/finished">Zakończone</a></h5>
+<h5><a href="/unfinished">Niezakończone</a></h5>
+
+
+
+</body>
+</html>
+

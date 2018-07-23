@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Edytuj zadanie</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form action="/update" method="post">
+
+                <input type="hidden" name="id" th:value="${task.id}">
+
+                <div class="form-group">
+                    <label for="memName">Nazwa</label>
+                    <input type="text" class="form-control" id="memName" name="name" th:value="${task.name}">
+                </div>
+                <div class="checkbox checkbox-move">
+                    <label>
+                        <input type="checkbox" name="finished" th:checked="${task.finished}"> Czy skończony
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Opis</label>
+                    <textarea name="description" class="form-control" rows="5" th:text="${task.description}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-animated">Edytuj</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
