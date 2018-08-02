@@ -1,6 +1,7 @@
-package com.example.Spring.model;
+package com.example.Spring.dao;
 
 import com.example.Spring.dao.TaskDao;
+import com.example.Spring.model.Task;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -32,7 +32,8 @@
                     <td th:text="${task.description}"></td>
                     <td th:text="${task.isFinished()}"></td>
                     <td><a th:href="@{/tasks/{id}(id=${task.id})}">Edycja</a></td>
-                    <td>Usuń</td>
+                    <td><a th:href="@{/tasks/remove/{id}(id=${task.id})}">Usuń</a></td>
+
                 </tr>
             </table>
         </div>

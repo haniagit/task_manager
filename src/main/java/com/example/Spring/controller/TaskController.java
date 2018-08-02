@@ -63,6 +63,10 @@ public class TaskController {
         taskDao.update(task);
         return "redirect:/all";
     }
-
+    @GetMapping("tasks/remove/{id}")
+    public String remove(@ModelAttribute Task task){
+        taskDao.deleteById(task.getId());
+        return "redirect:/all";
+    }
 
 }
